@@ -49,6 +49,31 @@ The following bioinformatics tools were used in this project:
 
 ---
 
+## Environment and Dependencies
+
+To run the pipeline, install the required software and Python libraries.
+
+### Bioinformatics Tools
+- FastQC
+- fastp
+- HISAT2
+- SAMtools
+- featureCounts
+- R (with DESeq2)
+- Cytoscape
+
+### Python Libraries
+Install the required Python packages:
+
+pip install -r requirements.txt
+
+### R Packages
+The following R packages are required:
+
+- DESeq2
+- ggplot2
+- pheatmap
+
 ## Pipeline Workflow
 
 ![Pipeline Workflow](pipeline_workflow.png)
