@@ -1,19 +1,19 @@
-# ai-driver-gene-discovery-lung-cancer
-AI-driven identification of hidden driver genes in lung adenocarcinoma using RNA-seq data and network topology analysis.
+# AI-Driven Discovery of Driver Genes in Lung Adenocarcinoma
 
 This project identifies potential **driver genes in lung adenocarcinoma (LUAD)** using RNA-seq data combined with **network topology analysis and machine learning**.
+The pipeline automates RNA-seq processing, differential expression analysis, network biology analysis, and machine-learning-based driver gene prediction.
 
 ---
 
 ## Objective
 
-The aim of this project is to detect genes that may act as **cancer drivers** by integrating:
+The objective of this project is to identify **potential cancer driver genes** by integrating:
 
-• Differential gene expression analysis  
-• Protein-protein interaction network analysis  
-• Machine learning-based gene ranking  
+• RNA-seq differential expression analysis
+• Protein-protein interaction network analysis
+• Machine learning-based gene ranking
 
-This automated pipeline helps identify biologically important genes involved in **lung cancer progression**.
+This pipeline helps identify biologically significant genes involved in **lung cancer progression**.
 
 ---
 
@@ -21,31 +21,31 @@ This automated pipeline helps identify biologically important genes involved in 
 
 RNA-seq dataset obtained from **NCBI GEO**.
 
-**Dataset ID:** GSE140343  
-**Cancer type:** Lung Adenocarcinoma (LUAD)
+Dataset ID: **GSE140343**
+Cancer Type: **Lung Adenocarcinoma (LUAD)**
 
-The dataset includes:
+The dataset contains:
 
-• Tumor samples  
+• Tumor samples
 • Normal lung tissue samples
 
 Raw sequencing data was downloaded from **NCBI SRA**.
 
 ---
 
-## Tools & Software
+## Tools and Software
 
-The following bioinformatics tools were used:
+The following bioinformatics tools were used in this project:
 
-- FastQC
-- fastp
-- HISAT2
-- SAMtools
-- featureCounts
-- DESeq2
-- STRING database
-- Cytoscape
-- Python (Machine Learning)
+• FastQC
+• fastp
+• HISAT2
+• SAMtools
+• featureCounts
+• DESeq2
+• STRING Database
+• Cytoscape
+• Python (Machine Learning)
 
 ---
 
@@ -53,34 +53,118 @@ The following bioinformatics tools were used:
 
 ![Pipeline Workflow](pipeline_workflow.png)
 
-Steps in the pipeline:
+Pipeline steps:
 
 1. Download RNA-seq data from SRA
-2. Quality control using FastQC
-3. Read trimming using fastp
-4. Alignment to human genome using HISAT2
-5. SAM to BAM conversion using SAMtools
-6. Gene counting using featureCounts
-7. Differential expression analysis using DESeq2
-8. Visualization (volcano plot and heatmap)
-9. Extraction of significant genes
-10. Protein interaction network analysis using STRING
-11. Machine learning-based driver gene prediction
+2. Perform quality control using FastQC
+3. Trim reads using fastp
+4. Align reads to the human reference genome using HISAT2
+5. Convert SAM files to BAM using SAMtools
+6. Perform gene counting using featureCounts
+7. Perform differential expression analysis using DESeq2
+8. Visualize results using volcano plots and heatmaps
+9. Extract significant genes
+10. Perform protein interaction network analysis using STRING and Cytoscape
+11. Apply machine learning to rank potential driver genes
+
+---
+
+## Project Structure
+
+ai-driver-gene-discovery-lung-cancer/
+
+data/
+│   sample_accessions.txt
+│   README.md
+
+scripts/
+│   download_sra.sh
+│   quality_control.sh
+│   alignment_hisat2.sh
+│   sam_to_bam.sh
+│   gene_counts.sh
+│   deseq2_analysis.R
+│   extract_significant_genes.R
+│   heatmap_top_genes.R
+│   prepare_string_network.R
+│   ml_driver_gene_prediction.py
+│   README.md
+
+results/
+│   deseq2_results.csv
+│   driver_gene_predictions.csv
+│   volcano_plot.png
+│   heatmap_top_genes.png
+│   string_network.png
+│   README.md
+
+README.md
+
+---
+
+## How to Run the Pipeline
+
+1. Download RNA-seq data from NCBI SRA.
+
+bash scripts/download_sra.sh
+
+2. Perform quality control.
+
+bash scripts/quality_control.sh
+
+3. Align reads to the human genome.
+
+bash scripts/alignment_hisat2.sh
+
+4. Convert SAM files to BAM format.
+
+bash scripts/sam_to_bam.sh
+
+5. Perform gene counting.
+
+bash scripts/gene_counts.sh
+
+6. Run differential expression analysis.
+
+Rscript scripts/deseq2_analysis.R
+
+7. Extract significant genes and generate visualization.
+
+Rscript scripts/extract_significant_genes.R
+Rscript scripts/heatmap_top_genes.R
+
+8. Run machine learning model to identify potential driver genes.
+
+python scripts/ml_driver_gene_prediction.py
 
 ---
 
 ## Results
 
-The pipeline produced the following outputs:
+The pipeline produces the following outputs:
 
-- Differentially expressed genes
-- Volcano plot visualization
-- Heatmap of top DEGs
-- Protein-protein interaction network
-- Machine learning predicted driver genes
+• Differentially expressed genes identified using DESeq2
+• Volcano plot visualization of gene expression changes
+• Heatmap of top differentially expressed genes
+• Protein-protein interaction network analysis
+• Machine learning prediction of potential driver genes
 
 All output files are available in the **results** directory.
 
 ---
 
-## Project Structure
+## Future Improvements
+
+Possible future extensions of this project include:
+
+• Integration of pathway enrichment analysis
+• Validation using independent RNA-seq datasets
+• Implementation of additional machine learning models
+• Integration with clinical metadata
+
+---
+
+## Author
+
+Amrutha
+Bioinformatics Project
